@@ -37,22 +37,32 @@ app.on('activate', function () {
 })
 
 function startMDNSBrowser(){
+    var found = false;
     const mdnsBrowser = mdns.createBrowser(mdns.tcp('Volumio'));
     mdnsBrowser.start();
     mdnsBrowser.on('serviceUp', function(service) {
-
         for (var i in service.addresses) {
             if (service.addresses[i].length < 20) {
                 var endpoint = 'http://' + service.addresses[i] + '/';
+                found = true;
                 mainWindow.loadURL(endpoint);
                 splash.destroy();
                 mainWindow.show();
             }
         }
-
     });
 
     mdnsBrowser.on('error', function(err) {
         //console.log(err);
     });
+
+    setTimeout(()=>{
+        console.log('timeout')
+        if (!found) {
+            console.log('Device not found, sending to myvolumio');
+            mainWindow.loadURL('https://myvolumio.org');
+            splash.destroy();
+            mainWindow.show();
+        }
+    }, 3000);
 }

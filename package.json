@@ -12,10 +12,12 @@
     },
     "snap": {
       "plugs": [
-        "default", "avahi-observe"
+        "default",
+        "avahi-observe"
       ],
       "stagePackages": [
-        "default", "libavahi-compat-libdnssd1"
+        "default",
+        "libavahi-compat-libdnssd1"
       ]
     }
   },
