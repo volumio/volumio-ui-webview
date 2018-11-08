@@ -1,0 +1,23 @@
+{
+  "name": "Volumio UI Webview",
+  "version": "1.0.0",
+  "description": "Webview with Autosearch for Volumio",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/volumio/volumio-ui-webview",
+  "keywords": [
+    "volumio",
+    "music player"
+  ],
+  "author": "Volumio",
+  "license": "",
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "sumchecker": "^2.0.2"
+  },
+  "dependencies": {
+    "mdns": "^2.4.0"
+  }
+}
