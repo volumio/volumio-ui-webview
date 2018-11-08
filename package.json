@@ -1,10 +1,23 @@
 {
-  "name": "Volumio UI Webview",
+  "name": "VolumioUIWebview",
   "version": "1.0.0",
   "description": "Webview with Autosearch for Volumio",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
+  },
+  "build": {
+    "linux": {
+      "target": "snap"
+    },
+    "snap": {
+      "plugs": [
+        "default", "avahi-observe"
+      ],
+      "stagePackages": [
+        "default", "libavahi-compat-libdnssd1"
+      ]
+    }
   },
   "repository": "https://github.com/volumio/volumio-ui-webview",
   "keywords": [
@@ -14,6 +27,7 @@
   "author": "Volumio",
   "license": "",
   "devDependencies": {
+    "electron-builder": "^20.33.2",
     "electron": "^1.8.4",
     "sumchecker": "^2.0.2"
   },
